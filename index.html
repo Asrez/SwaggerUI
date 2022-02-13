@@ -38,8 +38,12 @@
     <script>
     window.onload = function() {
       // Begin Swagger UI call region
+      const urlParams = new URLSearchParams(window.location.search);
+      const my_default_url = "https://asrez.github.io/WhereMoneyAPI/docs/swagger.yaml";
+//       const my_default_url = "https://cors-anywhere.herokuapp.com/https://github.com/Asrez/WhereMoneyAPI/raw/main/docs/swagger.yaml";
+      const default_url = urlParams.has("url") ? urlParams.get("url") : my_default_url;
       const ui = SwaggerUIBundle({
-        url: "https://cors-anywhere.herokuapp.com/https://github.com/Asrez/WhereMoneyAPI/raw/main/docs/swagger.yaml",
+        url: default_url,
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
